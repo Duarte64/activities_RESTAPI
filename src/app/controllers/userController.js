@@ -60,6 +60,7 @@ class UserController {
         }
     }
 
+    // ver no mongoose se tem delete cascade
     async delete(req, res) {
         const { _id } = req.params; 
         try {
