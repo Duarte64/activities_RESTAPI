@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
+const Activity = require('./Activity');
 
 const opts = { 
-        toJSON: {virtuals: true}, 
+        toJSON: {virtuals: true},
         id: false
     };
 
@@ -40,5 +41,9 @@ userSchema.virtual('age')
 //     this.updatedAt = Date.now();
 //     next();
 // });
+userSchema.pre('deleteOne', function(next) {
+    Activity.deleteMany({user: this._conditions._id}).exec();
+    next();
+})
 
 module.exports = mongoose.model('User', userSchema);

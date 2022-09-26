@@ -1,7 +1,5 @@
 const User = require('../models/User');
 
-const ActivityController = require('./activityController')
-
 class UserController {
     async index(req, res) {
         try {
@@ -65,7 +63,6 @@ class UserController {
         const { _id } = req.params; 
         try {
             const removedPatient = await User.deleteOne({ _id });
-            await ActivityController.deleteActivitiesWithUser(_id);
             res.status(200).json(removedPatient);
         } catch (err) {
             res.status(400).json({ message: 'error' });
