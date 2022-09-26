@@ -3,6 +3,8 @@ const Activity = require('../models/Activity');
 class ActivityController {
     async index(req, res) {
         // Listar todas atividades
+        const { fromDate, toDate } = req.query;
+        console.log(`From: ${fromDate} - To: ${toDate}`);
         try {
             const activities = await Activity.find().populate("user");
             if (activities) {
