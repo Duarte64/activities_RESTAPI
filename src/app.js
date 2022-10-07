@@ -18,6 +18,10 @@ const usersRoute = require('./routes/users');
 app.use('/api/activities', appointmentsRoute); // http://localhost:3000/api/appointments -> Access to appointments.js
 app.use('/api/users', usersRoute); // http://localhost:3000/api/users -> Access to users.js
 
+app.get('/', (req, res) => {
+    res.json('We are on home');
+});
+
 // Connect to MongoDB using Mongoose
 // get the connection string from the .env file
 mongoose.connect(process.env.DB_CONNECTION, () => {
