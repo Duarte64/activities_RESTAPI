@@ -4,6 +4,7 @@
   "description": "Creating my first REST API",
   "main": "app.js",
   "scripts": {
+    "start": "node src/app.js",
     "local": "nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
