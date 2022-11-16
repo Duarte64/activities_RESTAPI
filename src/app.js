@@ -11,11 +11,11 @@ app.use(express.json());
 //CORS Middleware
 app.use(cors());
 
-const appointmentsRoute = require('./routes/activities');
+const activitiesRoute = require('./routes/activities');
 const usersRoute = require('./routes/users');
 
 //USING ROUTES
-app.use('/api/activities', appointmentsRoute); // http://localhost:3000/api/appointments -> Access to appointments.js
+app.use('/api/activities', activitiesRoute); // http://localhost:3000/api/appointments -> Access to appointments.js
 app.use('/api/users', usersRoute); // http://localhost:3000/api/users -> Access to users.js
 
 app.get('/', (req, res) => {
